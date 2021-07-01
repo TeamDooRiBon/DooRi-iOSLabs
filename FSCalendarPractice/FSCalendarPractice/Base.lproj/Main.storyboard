@@ -29,20 +29,31 @@
                                     <constraint firstAttribute="height" constant="400" id="Qim-lL-yEg"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVQ-nd-Mlz">
+                                <rect key="frame" x="20" y="594" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9KN-H2-qY7"/>
+                                </constraints>
+                                <state key="normal" title="시작과 끝나는 날자선택"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="OVQ-nd-Mlz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="80m-p9-2R0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PYG-Ir-mpc" secondAttribute="trailing" id="96L-1A-3NT"/>
                             <constraint firstItem="PYG-Ir-mpc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="9Ib-ur-rty"/>
                             <constraint firstItem="bd5-qk-ccr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="C6B-Pq-w54"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bd5-qk-ccr" secondAttribute="trailing" constant="10" id="anb-zk-y0Z"/>
                             <constraint firstItem="PYG-Ir-mpc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="hW3-QR-KeF"/>
                             <constraint firstItem="bd5-qk-ccr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="oMN-k5-VUp"/>
+                            <constraint firstItem="OVQ-nd-Mlz" firstAttribute="top" secondItem="bd5-qk-ccr" secondAttribute="bottom" constant="50" id="oVg-VF-jdw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OVQ-nd-Mlz" secondAttribute="trailing" constant="20" id="u1u-jB-QWq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendar" destination="bd5-qk-ccr" id="oEB-b9-DBR"/>
+                        <outlet property="selectButton" destination="OVQ-nd-Mlz" id="se2-4m-syp"/>
                         <outlet property="topLabel" destination="PYG-Ir-mpc" id="ZnZ-MB-c5X"/>
                     </connections>
                 </viewController>
