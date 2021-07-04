@@ -39,16 +39,49 @@ class ViewController: UIViewController {
         calendar.allowsMultipleSelection = true
         calendar.scrollDirection = .vertical
         calendar.pagingEnabled = false
+        calendar.hasFloatingWeekdayView = true
+        calendar.swipeToChooseGesture.isEnabled = true
 
+        calendar.rowHeight = 46
         calendar.weekdayHeight = 69
+        calendar.appearance.scrollWhenSelected = false
+        calendar.appearance.headerSeparatorColor = UIColor(red: 233 / 255, green: 235 / 255, blue: 237 / 255, alpha: 1.0)
         calendar.appearance.weekdayTextColor = .systemGray2
+        calendar.appearance.weekdayWeekendTextColor = .red
+        calendar.appearance.titleFont = .systemFont(ofSize: 12.0, weight: .bold)
         calendar.appearance.titleWeekendColor = .red
+        calendar.appearance.weekdayFont = .systemFont(ofSize: 12.0)
+
         calendar.appearance.headerTitleColor = .blue
-        calendar.appearance.headerDateFormat = "YYYY년 M월"
+        calendar.appearance.headerDateFormat = "M"
         calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
+        calendar.appearance.headerTitleLeftMargin = 31
+        calendar.appearance.headerSubtitleRightMargin = 29
+        calendar.appearance.hasHeaderSubtitle = true
+        calendar.appearance.headerTitleFont = .systemFont(ofSize: 23.0, weight: .bold)
+        calendar.appearance.headerSubtitleFont = .systemFont(ofSize: 12.0)
+        calendar.appearance.headerTitleSuffixFont = .systemFont(ofSize: 12.0)
+        calendar.appearance.headerSuffixString = "월"
+        calendar.appearance.headerTitleColor = UIColor(red: 124/255, green: 137/255, blue: 173/255, alpha: 1.0)
+        calendar.appearance.headerSubtitleColor = UIColor(red: 124/255, green: 137/255, blue: 173/255, alpha: 1.0)
+        calendar.appearance.headerTitleSuffixColor = UIColor(red: 124/255, green: 137/255, blue: 173/255, alpha: 1.0)
+
         calendar.locale = Locale(identifier: "ko_KR")
-        
+
+        calendar.headerHeight = 40
+        calendar.weekdayHeight = 69
+
         calendar.register(DIYCalendarCell.self, forCellReuseIdentifier: "cell")
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        let rectShape = CAShapeLayer()
+        rectShape.bounds = calendar.frame
+        rectShape.position = calendar.center
+        rectShape.path = UIBezierPath(roundedRect: calendar.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 30, height: 30)).cgPath
+        calendar.layer.mask = rectShape
     }
 }
 

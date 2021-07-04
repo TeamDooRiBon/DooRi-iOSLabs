@@ -70,9 +70,10 @@ class DIYCalendarCell: FSCalendarCell {
         self.selectionLayer?.frame = self.contentView.bounds//.insetBy(dx: 0, dy: 3)
         self.connectionLayer?.frame = self.contentView.bounds//.insetBy(dx: 0, dy: 3)
 
-        guard let connectionRect = connectionLayer?.bounds else {
+        guard var connectionRect = connectionLayer?.bounds else {
             return
         }
+        connectionRect.size.height = connectionRect.height * 5 / 6
         if selectionType == .middle {
             self.connectionLayer?.isHidden = false
             self.connectionLayer?.opacity = 1
@@ -81,18 +82,17 @@ class DIYCalendarCell: FSCalendarCell {
         else if selectionType == .leftBorder {
             self.connectionLayer?.isHidden = false
             self.connectionLayer?.opacity = 1
-            self.connectionLayer?.path = UIBezierPath(
-                roundedRect: connectionRect,
-                byRoundingCorners: [.topLeft, .bottomLeft],
-                cornerRadii: CGSize(width: connectionRect.width / 2, height: connectionRect.width / 2)).cgPath
+            var rect = connectionRect
+            rect.origin.x = connectionRect.width / 2
+            rect.size.width = connectionRect.width / 2
+            self.connectionLayer?.path = UIBezierPath(rect: rect).cgPath
         }
         else if selectionType == .rightBorder {
             self.connectionLayer?.isHidden = false
             self.connectionLayer?.opacity = 1
-            self.connectionLayer?.path = UIBezierPath(
-                roundedRect: connectionRect,
-                byRoundingCorners: [.topRight, .bottomRight],
-                cornerRadii: CGSize(width: connectionRect.width / 2, height: connectionRect.width / 2)).cgPath
+            var rect = connectionRect
+            rect.size.width = connectionRect.width / 2
+            self.connectionLayer?.path = UIBezierPath(rect: rect).cgPath
         }
 
         if selectionType == .single || selectionType == .leftBorder || selectionType == .rightBorder {
@@ -101,7 +101,7 @@ class DIYCalendarCell: FSCalendarCell {
             let diameter: CGFloat = min(connectionRect.height, connectionRect.width)
             let rect = CGRect(
                 x: self.contentView.frame.width / 2 - diameter / 2,
-                y: self.contentView.frame.height / 2 - diameter / 2,
+                y: 0,
                 width: diameter,
                 height: diameter)
             self.selectionLayer?.path = UIBezierPath(ovalIn: rect).cgPath
