@@ -34,18 +34,19 @@ class ViewController: UIViewController {
         calendar.dataSource = self
         topLabel.numberOfLines = 2
         topLabel.text = "번들님 여행 날짜는\n언제인가요?"
+
         calendar.today = nil
         calendar.allowsMultipleSelection = true
         calendar.scrollDirection = .vertical
-        calendar.swipeToChooseGesture.isEnabled = true
-        
+        calendar.pagingEnabled = false
+
+        calendar.weekdayHeight = 69
         calendar.appearance.weekdayTextColor = .systemGray2
+        calendar.appearance.titleWeekendColor = .red
         calendar.appearance.headerTitleColor = .blue
         calendar.appearance.headerDateFormat = "YYYY년 M월"
         calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
         calendar.locale = Locale(identifier: "ko_KR")
-        calendar.calendarWeekdayView.weekdayLabels[0].textColor = .red
-        calendar.calendarWeekdayView.weekdayLabels[6].textColor = .red
         
         calendar.register(DIYCalendarCell.self, forCellReuseIdentifier: "cell")
     }
@@ -83,19 +84,11 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDe
             let startYear = Calendar.current.dateComponents([.year], from: date)
             let startMonth = Calendar.current.dateComponents([.month], from: date)
             let startDay = Calendar.current.dateComponents([.day], from: date)
-            if startMonth.month! >= 10 && startDay.day! >= 10{
-                startString = "\(startYear.year!).\(startMonth.month!).\(startDay.day!)"
-                self.selectButton.setTitle(startString, for: .normal)
-            } else if startMonth.month! < 10 && startDay.day! >= 10 {
-                startString = "\(startYear.year!).0\(startMonth.month!).\(startDay.day!)"
-                self.selectButton.setTitle(startString, for: .normal)
-            } else if startMonth.month! < 10 && startDay.day! < 10 {
-                startString = "\(startYear.year!).0\(startMonth.month!).0\(startDay.day!)"
-                self.selectButton.setTitle(startString, for: .normal)
-            } else if startMonth.month! >= 10 && startDay.day! < 10 {
-                startString = "\(startYear.year!).\(startMonth.month!).0\(startDay.day!)"
-                self.selectButton.setTitle(startString, for: .normal)
+            guard let year = startYear.year, let month = startMonth.month, let day = startDay.day else {
+                return
             }
+            startString = String(format: "%d.%2d.%2d", year, month, day)
+            self.selectButton.setTitle(startString, for: .normal)
             self.configureVisibleCells()
             return
         }
@@ -114,20 +107,11 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDe
                 let startYear = Calendar.current.dateComponents([.year], from: date)
                 let startMonth = Calendar.current.dateComponents([.month], from: date)
                 let startDay = Calendar.current.dateComponents([.day], from: date)
-                
-                if startMonth.month! >= 10 && startDay.day! >= 10{
-                    startString = "\(startYear.year!).\(startMonth.month!).\(startDay.day!)"
-                    self.selectButton.setTitle(startString, for: .normal)
-                } else if startMonth.month! < 10 && startDay.day! >= 10 {
-                    startString = "\(startYear.year!).0\(startMonth.month!).\(startDay.day!)"
-                    self.selectButton.setTitle(startString, for: .normal)
-                } else if startMonth.month! < 10 && startDay.day! < 10 {
-                    startString = "\(startYear.year!).0\(startMonth.month!).0\(startDay.day!)"
-                    self.selectButton.setTitle(startString, for: .normal)
-                } else if startMonth.month! >= 10 && startDay.day! < 10 {
-                    startString = "\(startYear.year!).\(startMonth.month!).0\(startDay.day!)"
-                    self.selectButton.setTitle(startString, for: .normal)
+                guard let year = startYear.year, let month = startMonth.month, let day = startDay.day else {
+                    return
                 }
+                startString = String(format: "%d.%2d.%2d", year, month, day)
+                self.selectButton.setTitle(startString, for: .normal)
                 self.configureVisibleCells()
                 return
             }
@@ -142,20 +126,11 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDe
             let endYear = Calendar.current.dateComponents([.year], from: date)
             let endMonth = Calendar.current.dateComponents([.month], from: date)
             let endDay = Calendar.current.dateComponents([.day], from: date)
-            
-            if endMonth.month! >= 10 && endDay.day! >= 10{
-                endString = "\(endYear.year!).\(endMonth.month!).\(endDay.day!)"
-                self.selectButton.setTitle("\(startString) - \(endString) 등록하기", for: .normal)
-            } else if endMonth.month! < 10 && endDay.day! >= 10 {
-                endString = "\(endYear.year!).0\(endMonth.month!).\(endDay.day!)"
-                self.selectButton.setTitle("\(startString) - \(endString) 등록하기", for: .normal)
-            } else if endMonth.month! < 10 && endDay.day! < 10 {
-                endString = "\(endYear.year!).0\(endMonth.month!).0\(endDay.day!)"
-                self.selectButton.setTitle("\(startString) - \(endString) 등록하기", for: .normal)
-            } else if endMonth.month! >= 10 && endDay.day! < 10 {
-                endString = "\(endYear.year!).\(endMonth.month!).0\(endDay.day!)"
-                self.selectButton.setTitle("\(startString) - \(endString) 등록하기", for: .normal)
+            guard let year = endYear.year, let month = endMonth.month, let day = endDay.day else {
+                return
             }
+            endString = String(format: "%d.%2d.%2d", year, month, day)
+            self.selectButton.setTitle("\(startString) - \(endString) 등록하기", for: .normal)
             self.configureVisibleCells()
             
             return
@@ -177,15 +152,14 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDe
         // both are selected:
 
         // NOTE: the is a REDUANDENT CODE:
-        if firstDate != nil && lastDate != nil {
-            for d in calendar.selectedDates {
-                calendar.deselect(d)
-            }
-            lastDate = nil
-            firstDate = nil
-            datesRange = []
-            print("datesRange contains: \(datesRange!)")
+        for d in calendar.selectedDates {
+            calendar.deselect(d)
         }
+        lastDate = nil
+        firstDate = nil
+        datesRange = []
+        print("datesRange contains: \(datesRange!)")
+        configureVisibleCells()
     }
 
     func datesRange(from: Date, to: Date) -> [Date] {
@@ -233,15 +207,9 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDe
             else {
                 selectionType = .none
             }
-            if selectionType == .none {
-                diyCell.selectionLayer.isHidden = true
-                return
-            }
-            diyCell.selectionLayer.isHidden = false
             diyCell.selectionType = selectionType
-            
         } else {
-            diyCell.selectionLayer.isHidden = true
+            diyCell.selectionType = .none
         }
     }
 }
