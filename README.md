@@ -25,3 +25,5 @@
 | 태그 | 내용 | 작성자 | 업데이트 날짜 | 바로가기 |
 |:--:|:--:|:--:|:--:|:--:|
 |`캘린더` | 컬렉션뷰 캘린더를 연습해봤습니다! |`상진` |`21.06.30(수)`|[Link🛫](https://github.com/TeamDooRiBon/DooRi-iOSLabs/tree/main/AddNewTrip)|
+|`캘린더` | FSCalendar를 연습해봤습니다! |`상진` |`21.07.02(금)`|-|
+|`캘린더` | FSCalendar 라이브러리를 수정했습니다! |`혜진` |`21.07.05(월)`|[Link🛫](https://github.com/TeamDooRiBon/DooRi-iOSLabs/tree/feedback)|
