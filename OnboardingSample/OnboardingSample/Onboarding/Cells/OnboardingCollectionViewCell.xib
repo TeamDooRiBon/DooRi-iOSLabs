@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnboardingCollectionViewCell" id="gTV-IL-0wX" customClass="OnboardingCollectionViewCell" customModule="OnboardingSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우리다운 여행을 만들어요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3Q-yh-x2h">
+                        <rect key="frame" x="20" y="341" width="335" height="24"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" red="0.41960784309999999" green="0.5568627451" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7W-Jf-Bj5">
+                        <rect key="frame" x="20" y="375" width="335" height="33.5"/>
+                        <string key="text">유형 테스트로 여행 스타일을 파악하고, 
+보드에서 소통하며 서로를 알아갈 수 있어요</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bes-Q6-zk6">
+                        <rect key="frame" x="50" y="0.0" width="275" height="277"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="bes-Q6-zk6" secondAttribute="height" multiplier="314:316" id="sXQ-pJ-j1l"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="a3Q-yh-x2h" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="2hP-dV-MAZ"/>
+                <constraint firstAttribute="trailing" secondItem="a3Q-yh-x2h" secondAttribute="trailing" constant="20" id="KZC-5n-3IU"/>
+                <constraint firstItem="bes-Q6-zk6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="50" id="Lcq-yl-JeS"/>
+                <constraint firstAttribute="trailing" secondItem="bes-Q6-zk6" secondAttribute="trailing" constant="50" id="REZ-wJ-3WT"/>
+                <constraint firstItem="a3Q-yh-x2h" firstAttribute="top" secondItem="bes-Q6-zk6" secondAttribute="bottom" constant="64" id="SzH-fs-UYl"/>
+                <constraint firstItem="T7W-Jf-Bj5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ZgN-0U-sio"/>
+                <constraint firstItem="bes-Q6-zk6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aJD-P7-yXX"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="T7W-Jf-Bj5" secondAttribute="bottom" constant="27" id="dlt-F8-iGG"/>
+                <constraint firstAttribute="trailing" secondItem="T7W-Jf-Bj5" secondAttribute="trailing" constant="20" id="dn1-X7-Mmu"/>
+                <constraint firstItem="T7W-Jf-Bj5" firstAttribute="top" secondItem="a3Q-yh-x2h" secondAttribute="bottom" constant="10" id="zup-p7-P5W"/>
+            </constraints>
+            <size key="customSize" width="394" height="555"/>
+            <connections>
+                <outlet property="onboardingDescriptionLabel" destination="T7W-Jf-Bj5" id="73b-PU-Sei"/>
+                <outlet property="onboardingTitleLabel" destination="a3Q-yh-x2h" id="edQ-oB-DGf"/>
+                <outlet property="onboardingView" destination="bes-Q6-zk6" id="h38-tS-oAR"/>
+            </connections>
+            <point key="canvasLocation" x="257.97101449275362" y="169.08482142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="Y6W-OH-hqX" customClass="OnboardingViewController" customModule="OnboardingSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ure-ny-Jd4">
+                                <rect key="frame" x="327" y="63" width="30" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="skip">
+                                    <color key="titleColor" red="0.62745098039215685" green="0.64313725490196072" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sqd-bE-TDJ">
+                                <rect key="frame" x="0.0" y="138" width="375" height="590"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="phw-l6-S2Q">
+                                    <size key="itemSize" width="122" height="125"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aHI-yY-PUg">
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="125"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xuo-bd-AfH">
+                                            <rect key="frame" x="0.0" y="0.0" width="122" height="125"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="122" height="125"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cta-Bx-v1e">
+                                <rect key="frame" x="261" y="731" width="97" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.4823529411764706" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="DpF-up-uW0"/>
+                                    <constraint firstAttribute="height" constant="36" id="LuZ-Ic-L2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cnC-g1-Pe3"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="jzW-Fy-L5D">
+                                <rect key="frame" x="0.0" y="736" width="120.33333333333333" height="26.333333333333371"/>
+                                <color key="pageIndicatorTintColor" red="0.792156862745098" green="0.80392156862745101" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.41960784313725491" green="0.5607843137254902" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cta-Bx-v1e" secondAttribute="bottom" constant="45" id="4XM-ee-lsX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Sqd-bE-TDJ" secondAttribute="trailing" id="64m-WU-wC8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ure-ny-Jd4" secondAttribute="trailing" constant="18" id="FHV-cO-ThZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Sqd-bE-TDJ" secondAttribute="bottom" constant="50" id="Jde-ai-y0i"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cta-Bx-v1e" secondAttribute="trailing" constant="17" id="P6E-e0-heV"/>
+                            <constraint firstItem="Sqd-bE-TDJ" firstAttribute="top" secondItem="Ure-ny-Jd4" secondAttribute="bottom" constant="46" id="WGu-7K-3IH"/>
+                            <constraint firstItem="Sqd-bE-TDJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dJc-sm-0IF"/>
+                            <constraint firstItem="jzW-Fy-L5D" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qE0-Ej-Mew"/>
+                            <constraint firstItem="jzW-Fy-L5D" firstAttribute="centerY" secondItem="cta-Bx-v1e" secondAttribute="centerY" id="tg6-95-mR5"/>
+                            <constraint firstItem="Ure-ny-Jd4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="19" id="xVK-qh-tYE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="cta-Bx-v1e" id="WiT-Ti-H2J"/>
+                        <outlet property="onboardingCollectionView" destination="Sqd-bE-TDJ" id="ECg-8K-V71"/>
+                        <outlet property="pageControl" destination="jzW-Fy-L5D" id="yce-TA-Zkt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.19999999999999" y="62.807881773399018"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
