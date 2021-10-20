@@ -4,7 +4,7 @@
 target 'FSCalendarPractice' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-pod 'FSCalendar'
+pod 'FSCalendar', :git => 'https://github.com/hyejinL/FSCalendar.git', :branch => 'dooribun'
   # Pods for FSCalendarPractice
 
 end

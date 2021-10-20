@@ -1,16 +1,22 @@
 PODS:
-  - FSCalendar (2.8.2)
+  - FSCalendar (2.8.3)
 
 DEPENDENCIES:
-  - FSCalendar
+  - FSCalendar (from `https://github.com/hyejinL/FSCalendar.git`, branch `dooribun`)
 
-SPEC REPOS:
-  trunk:
-    - FSCalendar
+EXTERNAL SOURCES:
+  FSCalendar:
+    :branch: dooribun
+    :git: https://github.com/hyejinL/FSCalendar.git
+
+CHECKOUT OPTIONS:
+  FSCalendar:
+    :commit: 09cdece9e5edbe4789d18f3f6a91e0bc2e37d0ca
+    :git: https://github.com/hyejinL/FSCalendar.git
 
 SPEC CHECKSUMS:
-  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  FSCalendar: ed63fee7df375e34340c1236308fdbfc568d26ac
 
-PODFILE CHECKSUM: 589565812b1b667815a667eadae47a6e184fe983
+PODFILE CHECKSUM: f79e4ff131f18ebf6c88dfc1a98e5daa4f25e0fb
 
 COCOAPODS: 1.10.1
